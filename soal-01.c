@@ -56,8 +56,8 @@ float *convolution(float a[], float b[])
 	{
 		for (int j = 0; j <= i; j++)
 		{
-			sum1 = sum1 + a[4 - i] * b[j];
-			sum2 = sum2 + a[i] * b[4-j];
+			sum1 = sum1 + a[4 - j] * b[i-j];
+			sum2 = sum2 + a[i-j] * b[4-j];
 		}
 		hasil[i] = sum1;
 		hasil[8 - i] = sum2;
