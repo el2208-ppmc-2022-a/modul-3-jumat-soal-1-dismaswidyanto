@@ -63,50 +63,57 @@ float *convolution(float a[], float b[])
 
 	return hasil;
 }
+
 int main()
 {
 	float a[size] = { 0,0,0,0,0 }; 
 	float b[size] = { 0,0,0,0,0 };
 	float* hasil;
 	int tipe,panjang,amplitudo;
+	
 	//buat runtun 1
 	printf("masukkan runtun pertama : \n");
 	printf("masukkan jenis runtun : \n 1. step ( f(n) = Au(t)-Au(t-n)) \n 2. ramp( f(n) = An ) \n 3. eksponen luruh( f(n) = Ae^-t \n");
-	scanf_s("%d", &tipe);
+	scanf("%d", &tipe);
 	printf("masukkan panjang runtun  (1-5): ");
-	scanf_s("%d", &panjang);
+	scanf("%d", &panjang);
 	printf("masukkan amplitudo runtun  : ");
-	scanf_s("%d", &amplitudo);
+	scanf("%d", &amplitudo);
 	sinyal(a,tipe, panjang, amplitudo);
 	printf("\n");
+	
 	//buat runtun 2
 	printf("masukkan runtun kedua : \n");
 	printf("masukkan jenis runtun : \n 1. step ( f(n) = Au(t)-Au(t-n)) \n 2. ramp( f(n) = An ) \n 3. eksponen luruh( f(n) = Ae^-t \n");
-	scanf_s("%d", &tipe);
+	scanf("%d", &tipe);
 	printf("masukkan panjang runtun  (1-5): ");
-	scanf_s("%d", &panjang);
+	scanf("%d", &panjang);
 	printf("masukkan amplitudo runtun  : ");
-	scanf_s("%d", &amplitudo);
-	sinyal(b, tipe, panjang, amplitudo);    
+	scanf("%d", &amplitudo);
+	sinyal(b, tipe, panjang, amplitudo);
+	
 	//print runtun 1
 	printf("runtun 1 adalah:");
 	for (int i = 0; i < 5; i++)
 	{
-		printf("%f ", a[i]);
+		printf("%f,", a[i]);
 	}
 	printf("\n");
-	//print runtun 1
+	
+	//print runtun 2
 	printf("runtun 2 adalah:");
 	for (int i = 0; i < 5; i++)
 	{
-		printf("%f ", b[i]);
+		printf("%f,", b[i]);
 	}
 	printf("\n");
+	
+	//print runtun 2
+	printf("hasil konvolusi adalah : ");
 	hasil = convolution(a, b);
 	for (int i = 0; i < 9; i++)
 	{
-		printf("%f, ", hasil[i]);
+		printf("%f,", hasil[i]);
 	}
-
   
 }
