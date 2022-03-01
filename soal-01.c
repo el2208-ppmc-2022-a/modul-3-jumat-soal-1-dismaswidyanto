@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <math.h>
 #define size  5
+
 void sinyal(float arr[], int tipe, int panjang, int amplitudo)
 {
 	if (tipe == 1)
@@ -43,23 +44,25 @@ void sinyal(float arr[], int tipe, int panjang, int amplitudo)
 float *convolution(float a[], float b[])
 {
 	static float hasil[9];
-	float sum = 0;
+	float sum1 = 0;
+	float sum2 = 0;
 	for (int i = 0; i < 2; i++)
 	{
 		float temp = b[i];
 		b[i] = b[4 - i];
-		b[4 - 1] = temp;
+		b[4 - i] = temp;
 	}
 	for (int i = 0; i < 5; i++)
 	{
 		for (int j = 0; j <= i; j++)
 		{
-			sum = sum + a[4 - i] * b[j];
-			
+			sum1 = sum1 + a[4 - i] * b[j];
+			sum2 = sum2 + a[i] * b[4-j];
 		}
-		hasil[i] = sum;
-		hasil[8 - i] = sum;
-		sum = 0;
+		hasil[i] = sum1;
+		hasil[8 - i] = sum2;
+		sum1 = 0;
+		sum2 = 0;
 	}
 
 	return hasil;
