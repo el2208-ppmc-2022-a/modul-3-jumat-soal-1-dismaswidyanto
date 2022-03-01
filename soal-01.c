@@ -26,7 +26,7 @@ void sinyal(float arr[], int tipe, int panjang, int amplitudo)
 	{
 		for (int i = 0; i < panjang; i++)
 		{
-			arr[4 - i] = amplitudo*(4.0-float(i));
+			arr[4 - i] = amplitudo*(4.0-(float)i);
 			
 		}
 	}
@@ -34,11 +34,12 @@ void sinyal(float arr[], int tipe, int panjang, int amplitudo)
 	{
 		for (int i = 0; i < panjang; i++)
 		{
-			arr[i] = amplitudo*exp(-float(i));
+			arr[i] = amplitudo*exp(-(float)i);
 			
 		}
 	}
 }
+
 float *convolution(float a[], float b[])
 {
 	static float hasil[9];
@@ -63,6 +64,7 @@ float *convolution(float a[], float b[])
 
 	return hasil;
 }
+
 
 int main()
 {
